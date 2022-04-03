@@ -22,7 +22,7 @@ export default function Button(props) {
     )
 }
 
-Button.PropTypes = {
+Button.propTypes = {
     children: PropTypes.node.isRequired,
     onClick: PropTypes.func.isRequired,
 }

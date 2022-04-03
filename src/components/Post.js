@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostHeader from './PostHeader';
 
+import styles from '../styles/Post.scss';
+
 export default function Post(props){
 
     return (
-        <>
+        <article className={props.post.removed ? styles.postDeleted : styles.post}>
         <PostHeader
         onRemove={props.onRemove}
         post={{
@@ -14,14 +16,24 @@ export default function Post(props){
             read: props.post.read,
         }}
         />
-        <article>
-                <small>{props.post.subtitle}</small>
-                <br/>
-                Media: {props.post.likes}
-        </article>
         <br/>
-        </>
-        
+        <small>{props.post.subtitle}</small>
+        <br/>
+        Media: {props.post.likes}
+        </article>
+
     )
+}
+
+Post.propTypes = {
+    onRemove: PropTypes.func.isRequired,
+    post: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
+        read: PropTypes.bool.isRequired,
+        removed: PropTypes.bool,
+    }).isRequired
 }
 
