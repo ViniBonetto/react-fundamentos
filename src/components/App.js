@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-import Post from './Post';
+import Post from './Post/Post';
 import Header from './Header';
 
 import { ThemeProvider } from '../context/ThemeContext';
+import Title from './Title';
 
 
 
@@ -39,10 +40,11 @@ function App() {
     return (
         <ThemeProvider>
             <Header>
-                <h2>
-                Posts da Semana
-                <button onClick={handleRefresh}>Atualizar</button>
-                </h2>   
+                <Title as="h2">
+                    Posts da Semana
+                    <button onClick={handleRefresh}>Atualizar</button>
+                </Title>
+                
             </Header>
 
             <hr/>

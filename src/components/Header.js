@@ -3,17 +3,14 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 import { ThemeContext } from '../context/ThemeContext';
+import Title from './Title';
 
 export default function Header(props) {
     const { onToggleTheme } = useContext(ThemeContext);
+
     return (
-        <div
-        style={{
-            fontFamily: 'sans-serif',
-        }}
-        >
-        <h1>{props.title}</h1>
-        <Button onClick={onToggleTheme}>Mudar Tema</Button>
+        <div>
+        <Title>{props.title}</Title>
         {props.children}
         </div>
     );
